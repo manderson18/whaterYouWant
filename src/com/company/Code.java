@@ -3,10 +3,14 @@ package com.company;
 
 public class Code {
 
+
     private String myCode;
     private String origCode;
-    private String X = "X";
+    private char X = 'X';
+    private String hiddenCode;
+    private int i;
 
+    // use char array instead
     public Code(String code)
     {
         myCode = code;
@@ -24,7 +28,14 @@ public class Code {
 
     public void hide(int p1, int p2)
     {
+        for (i = 0; i >= myCode.length(); i++){
 
+           hiddenCode = myCode.substring(p1,p2);
+
+            System.out.println(hiddenCode + X);
+
+
+        }
 
 
 

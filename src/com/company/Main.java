@@ -10,17 +10,22 @@ public class Main {
             System.out.println("Please enter your code");
             Scanner kbin = new Scanner(System.in);
             String userInputtedCode = kbin.nextLine();
+            System.out.println("Please enter the lower bound ");
+            int lowerBound = kbin.nextInt();
+            System.out.println("Please enter the upper bound ");
+            int upperBound = kbin.nextInt();
+            String buffer = kbin.nextLine();
             Code response = new Code(userInputtedCode);
-            response.hide(6, 15);
+            response.hide(lowerBound, upperBound);
 
             System.out.println("Your encrypted code is: " + response.getCode());
             System.out.println("Would you like to decrypt your code \n Y/N? ");
             String YN = kbin.nextLine();
 
             if (YN.equalsIgnoreCase("Y")) {
-                response.recover(6, 15);
+                response.recover(lowerBound, upperBound);
                 System.out.println("Your original code is " + response.getCode());
-                System.out.println("\n Would you like to encrypt another string Y/N? ");
+                System.out.println("\nWould you like to encrypt another string Y/N? ");
                 String userContinue = kbin.nextLine();
 
                 if (userContinue.equalsIgnoreCase("Y")) {
