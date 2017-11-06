@@ -1,68 +1,39 @@
 package com.company;
 
-
 public class Code {
-
-
     private String myCode;
-    private String origCode;
-    private char X = 'X';
-    private String hiddenCode;
-    private int i;
+    private  String originalCode;
+    private String X;
+    int i = 0;
 
-    // use char array instead
+
     public Code(String code)
     {
+        originalCode = code;
+        X ="";
         myCode = code;
 
-
+        for(int i = 0; i < myCode.length(); i++)
+            X = X + "X";
     }
     public String getCode()
     {
         return myCode;
     }
 
-    // precondition: p1 >= 0, p1 < p2
-// p2 <= myCode.length()
-
-
     public void hide(int p1, int p2)
     {
-        for (i = 0; i >= myCode.length(); i++){
 
-           hiddenCode = myCode.substring(p1,p2);
-
-            System.out.println(hiddenCode + X);
-
-
-        }
-
-
-
-
-
+        myCode = originalCode.substring(0,p1) + X.substring(p1,p2) + originalCode.substring(p2,originalCode.length());
 
 
     }
 
-    // precondition: p1 >= 0, p1 < p2
-// p2 <= myCode.length()
+    public void recover(int p1, int p2) {
 
-    public void recover(int p1, int p2)
-    {
-
-
-
-
-
-
-
-
+        myCode = originalCode.substring(0,p1) + originalCode.substring(p1,p2) + originalCode.substring(p2,originalCode.length());
 
     }
-
-
-
-
 }
+
 
